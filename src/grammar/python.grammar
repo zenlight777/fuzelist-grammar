@@ -30,4 +30,4 @@ VariableName { identifier }
 
 }
 
-@external tokens newlines from "./tokens" { newlineBracketed, newlineEmpty }
+@external tokens newlines from "./tokens" { newlineBracketed, newlineEmpty, eof }

@@ -16,6 +16,7 @@
   "author": "Dev4Light <dev4light@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-legacy": "^2.0.0",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "lezer-editor-common": "^0.1.0",
@@ -30,13 +31,13 @@
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-legacy": "^2.0.0",
     "lezer": "^0.12.0"
   },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "lezer-generator src/grammar/python.grammar -o src/grammar/parser.js && rollup -c",
     "build-dbg": "lezer-generator src/grammar/python.grammar --names -o src/grammar/parser && rollup -c rollup.config.dbg.js",
+    "deploy": "pnpm run build && rsync -arvhP --filter '+ package.json' --filter '+ dist/' --filter '+ dist/**' --filter '- **'  ./ ../lezer-editor/node_modules/fuzelist-grammar/",
     "prepare": "npm run build",
     "test": "mocha test/test-*.js"
   }

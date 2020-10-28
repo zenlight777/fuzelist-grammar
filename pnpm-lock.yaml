@@ -1,8 +1,8 @@
 dependencies:
   '@rollup/plugin-commonjs': 16.0.0_rollup@2.32.1
-  '@rollup/plugin-legacy': 2.0.0_rollup@2.32.1
   lezer: 0.12.0
 devDependencies:
+  '@rollup/plugin-legacy': 2.0.0_rollup@2.32.1
   '@rollup/plugin-multi-entry': 4.0.0_rollup@2.32.1
   '@rollup/plugin-node-resolve': 9.0.0_rollup@2.32.1
   lezer-editor-common: 0.1.0
@@ -60,7 +60,7 @@ packages:
   /@rollup/plugin-legacy/2.0.0_rollup@2.32.1:
     dependencies:
       rollup: 2.32.1
-    dev: false
+    dev: true
     peerDependencies:
       rollup: ^1.20.0||^2.0.0
     resolution:

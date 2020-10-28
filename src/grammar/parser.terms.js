@@ -2,6 +2,7 @@
 export const
   newlineBracketed = 6,
   newlineEmpty = 7,
+  eof = 8,
   Comment = 1,
   VariableName = 3,
   AssignOp = 4

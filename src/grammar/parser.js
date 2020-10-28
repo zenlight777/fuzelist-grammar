@@ -4,13 +4,13 @@ import {newlines} from "./tokens"
 export const parser = Parser.deserialize({
   version: 12,
   states: "tO`QROOOOQQ'#C_'#C_OeQROOOOQQ'#C`'#C`O`QROOQOQROO",
-  stateData: "j~OXOSVOSUOSPOS~OYPO~OZRO~O",
+  stateData: "j~OYOSVOSUOSPOS~OZPO~O[RO~O",
   goto: "_TPPPU[QQORTSRSQ",
   nodeNames: "⚠ Comment Root VariableName AssignOp",
-  maxTerm: 11,
+  maxTerm: 12,
   skippedNodes: [0,1],
   repeatNodeCount: 0,
-  tokenData: "#_~RYXYq[]qpqqst!]!_!`!k!c!}!p#O#P#U#R#S!p#T#o!p$g~!p~vSX~XYq[]qpqq#O#P!S~!VQYZq]^q~!bRP~OY!]Z]!]^~!]~!pOZ~~!uTY~!Q![!p!c!}!p#R#S!p#T#o!p$g~!p~#XQYZq]^q",
+  tokenData: "#_~RYXYq[]qpqqst!]!_!`!k!c!}!p#O#P#U#R#S!p#T#o!p$g~!p~vSY~XYq[]qpqq#O#P!S~!VQYZq]^q~!bRP~OY!]Z]!]^~!]~!pO[~~!uTZ~!Q![!p!c!}!p#R#S!p#T#o!p$g~!p~#XQYZq]^q",
   tokenizers: [0, newlines],
   topRules: {"Root":[0,2]},
   tokenPrec: 0
