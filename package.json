@@ -1,0 +1,43 @@
+{
+  "name": "fuzelist-grammar",
+  "version": "0.1.2",
+  "description": "Lezer-based FuzeList grammar",
+  "main": "dist/index.cjs",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.es.js",
+    "require": "./dist/index.cjs"
+  },
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Dev4Light <dev4light@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-multi-entry": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "lezer-editor-common": "^0.1.0",
+    "lezer-generator": "^0.12.0",
+    "mocha": "^8.2.0",
+    "rollup": "^2.32.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-legacy": "^2.0.0",
+    "lezer": "^0.12.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "lezer-generator src/grammar/python.grammar -o src/grammar/parser.js && rollup -c",
+    "build-dbg": "lezer-generator src/grammar/python.grammar --names -o src/grammar/parser && rollup -c rollup.config.dbg.js",
+    "prepare": "npm run build",
+    "test": "mocha test/test-*.js"
+  }
+}

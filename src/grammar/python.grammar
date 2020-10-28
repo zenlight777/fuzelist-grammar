@@ -1,0 +1,33 @@
+
+@top Root { VariableName AssignOp{"="} VariableName }
+
+VariableName { identifier }
+
+@skip { space | newlineEmpty | newlineBracketed | Comment }
+
+@skip {} {
+
+}
+
+@tokens {
+  @precedence {
+    identifier
+  }
+
+  word { identifierChar (std.digit | identifierChar)* }
+
+  identifierChar { std.asciiLetter | $[_\u{a1}-\u{10ffff}] }
+
+  identifier { word }
+
+  Comment { "#" ![\n\r]* }
+
+  space { ($[ \t\f] | "\\" $[\n\r])+ }
+
+  "(" ")" "[" "]" "{" "}"
+
+  "." "," ";" ":" "@" "*" "**"
+
+}
+
+@external tokens newlines from "./tokens" { newlineBracketed, newlineEmpty }
