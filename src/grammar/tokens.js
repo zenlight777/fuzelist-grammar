@@ -1,21 +1,16 @@
-import {ExternalTokenizer} from "lezer"
-// import {
-//   newline as newlineToken, eof, newlineEmpty, newlineBracketed, continueBody, endBody,
-//   ParenthesizedExpression, TupleExpression, ComprehensionExpression, ArrayExpression, ArrayComprehensionExpression,
-//   DictionaryExpression, DictionaryComprehensionExpression, SetExpression, SetComprehensionExpression,
-//   compoundStatement,
-//   printKeyword
-// } from "./parser.terms.js"
-import {AssignOp} from "./parser.terms.js"
+import { ExternalTokenizer } from "lezer"
+import {
+  AssignOp, eof, newline as newlineToken, newlineBracketed, newlineEmpty
+} from "./parser.terms.js"
 
 const newline = 10, carriageReturn = 13, space = 32, tab = 9, hash = 35, parenOpen = 40, dot = 46
 
 const bracketed = [
   // ParenthesizedExpression, TupleExpression, ComprehensionExpression, ArrayExpression, ArrayComprehensionExpression,
   // DictionaryExpression, DictionaryComprehensionExpression, SetExpression, SetComprehensionExpression
-], 
-// parentStatement = [compoundStatement]
-parentStatement = [AssignOp]
+],
+  // parentStatement = [compoundStatement]
+  parentStatement = [AssignOp]
 
 const caches = new WeakMap
 
@@ -107,14 +102,14 @@ export const newlines = new ExternalTokenizer((input, token, stack) => {
   }
   token.accept(newlineToken, token.start + 1)
   Cache.for(input).set(scan, indent)
-}, {contextual: true, fallback: true})
+}, { contextual: true, fallback: true })
 
 export const bodyContinue = new ExternalTokenizer((input, token, stack) => {
   let parent = stack.startOf(parentStatement)
   let parentIndent = parent == null ? 0 : getIndent(input, parent)
   let indentHere = getIndent(input, token.start)
   token.accept(indentHere <= parentIndent ? endBody : continueBody, token.start)
-}, {contextual: true, fallback: true})
+}, { contextual: true, fallback: true })
 
 export const legacyPrint = new ExternalTokenizer((input, token) => {
   let pos = token.start
@@ -122,7 +117,7 @@ export const legacyPrint = new ExternalTokenizer((input, token) => {
     if (input.get(pos) != print.charCodeAt(i)) return
   let end = pos
   if (/\w/.test(String.fromCharCode(input.get(pos)))) return
-  for (;; pos++) {
+  for (; ; pos++) {
     let next = input.get(pos)
     if (next == space || next == tab) continue
     if (next != parenOpen && next != dot && next != newline && next != carriageReturn && next != hash)

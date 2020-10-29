@@ -3,14 +3,14 @@ import {Parser} from "lezer"
 import {newlines} from "./tokens"
 export const parser = Parser.deserialize({
   version: 12,
-  states: "tO`QROOOOQQ'#C_'#C_OeQROOOOQQ'#C`'#C`O`QROOQOQROO",
-  stateData: "j~OYOSVOSUOSPOS~OZPO~O[RO~O",
-  goto: "_TPPPU[QQORTSRSQ",
-  nodeNames: "⚠ Comment Root VariableName AssignOp",
-  maxTerm: 12,
+  states: "!QO`QROOOOQQ'#C`'#C`OeQRO'#C_QOQROOOOQQ'#Ca'#CaO`QRO,58yOjQRO1G.eOOQQ7+$P7+$P",
+  stateData: "r~O[OSWOSVOSPOS~O]PO~O^SO~OXVOYVO~O",
+  goto: "cUPPPVY`RROQQORUTRTQ",
+  nodeNames: "⚠ Comment Root Main VariableName AssignOp",
+  maxTerm: 14,
   skippedNodes: [0,1],
   repeatNodeCount: 0,
-  tokenData: "#_~RYXYq[]qpqqst!]!_!`!k!c!}!p#O#P#U#R#S!p#T#o!p$g~!p~vSY~XYq[]qpqq#O#P!S~!VQYZq]^q~!bRP~OY!]Z]!]^~!]~!pO[~~!uTZ~!Q![!p!c!}!p#R#S!p#T#o!p$g~!p~#XQYZq]^q",
+  tokenData: "#_~RYXYq[]qpqqst!]!_!`!k!c!}!p#O#P#U#R#S!p#T#o!p$g~!p~vS[~XYq[]qpqq#O#P!S~!VQYZq]^q~!bRP~OY!]Z]!]^~!]~!pO^~~!uT]~!Q![!p!c!}!p#R#S!p#T#o!p$g~!p~#XQYZq]^q",
   tokenizers: [0, newlines],
   topRules: {"Root":[0,2]},
   tokenPrec: 0

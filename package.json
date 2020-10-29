@@ -35,8 +35,8 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "lezer-generator src/grammar/python.grammar -o src/grammar/parser.js && rollup -c",
-    "build-dbg": "lezer-generator src/grammar/python.grammar --names -o src/grammar/parser && rollup -c rollup.config.dbg.js",
+    "build": "lezer-generator src/grammar/fuzelist.grammar -o src/grammar/parser.js && rollup -c",
+    "build-dbg": "lezer-generator src/grammar/fuzelist.grammar --names -o src/grammar/parser && rollup -c rollup.config.dbg.js",
     "deploy": "pnpm run build && rsync -arvhP --filter '+ package.json' --filter '+ dist/' --filter '+ dist/**' --filter '- **'  ./ ../lezer-editor/node_modules/fuzelist-grammar/",
     "prepare": "npm run build",
     "test": "mocha test/test-*.js"

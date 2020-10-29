@@ -1,5 +1,9 @@
 
-@top Root { VariableName AssignOp{"="} VariableName }
+@top Root { Main }
+
+Main {
+  VariableName AssignOp{"="} VariableName (newline | eof)
+}
 
 VariableName { identifier }
 
@@ -30,4 +34,4 @@ VariableName { identifier }
 
 }
 
-@external tokens newlines from "./tokens" { newlineBracketed, newlineEmpty, eof }
+@external tokens newlines from "./tokens" { newlineBracketed, newlineEmpty, newline, eof }
