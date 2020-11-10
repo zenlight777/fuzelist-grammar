@@ -19,7 +19,7 @@
     "@rollup/plugin-legacy": "^2.0.0",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
-    "lezer-editor-common": "^0.1.0",
+    "@dev4light/lezer-editor-common": "^0.1.0",
     "lezer-generator": "^0.12.0",
     "mocha": "^8.2.0",
     "rollup": "^2.32.1",
@@ -27,13 +27,16 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-typescript2": "^0.28.0",
     "tslib": "^2.0.3",
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "express": "^4.17.1"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
-    "lezer": "^0.12.0"
+    "lezer": "^0.12.0",
+    "rollup-plugin-typescript": "^1.0.1"
   },
   "scripts": {
+    "start": "node index.js",
     "clean": "rm -rf dist",
     "build": "lezer-generator src/grammar/fuzelist.grammar -o src/grammar/parser.js && rollup -c",
     "build-dbg": "lezer-generator src/grammar/fuzelist.grammar --names -o src/grammar/parser && rollup -c rollup.config.dbg.js",

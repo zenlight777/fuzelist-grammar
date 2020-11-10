@@ -1,5 +1,5 @@
 import { NodeType } from "lezer";
-import { IInterpreter } from "lezer-editor-common";
+import { IInterpreter } from "@dev4light/lezer-editor-common";
 
 export class RootInterpreter implements IInterpreter {
 

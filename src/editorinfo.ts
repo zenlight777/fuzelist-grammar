@@ -1,4 +1,4 @@
-import { IInterpreter } from 'lezer-editor-common';
+import { IInterpreter } from '@dev4light/lezer-editor-common';
 import { RootInterpreter } from './interpreter/root.interpreter';
 
 function getGrammarTags() {
