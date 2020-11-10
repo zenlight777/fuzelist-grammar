@@ -36,7 +36,7 @@
     "rollup-plugin-typescript": "^1.0.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "cd .replit-serve && node index.js",
     "clean": "rm -rf dist",
     "build": "lezer-generator src/grammar/fuzelist.grammar -o src/grammar/parser.js && rollup -c",
     "build-dbg": "lezer-generator src/grammar/fuzelist.grammar --names -o src/grammar/parser && rollup -c rollup.config.dbg.js",
