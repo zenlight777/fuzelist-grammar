@@ -115,4 +115,5 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 
-.npmshd
+package-lock.json
+pnpm-lock.yaml
