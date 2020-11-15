@@ -2,7 +2,7 @@
 
 This is an example code for a simple Lezer grammar.
 
-To use your own grammar, please:
+In Repl.it, to use your own grammar, please:
 
 1. Edit any file in this repo. 
 1. When asked, fork the repo to your own repl.it account (create one if needed). 
