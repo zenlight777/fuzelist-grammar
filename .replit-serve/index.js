@@ -1,11 +1,14 @@
 const express = require('express');
 const path = require('path');
 const app = express()
+const cors = require("cors");
 
 const DIST = path.resolve(process.cwd() + '/../dist/')
 console.log(DIST)
 
-app.use('/dist', express.static(DIST));
+app.use('/dist', cors(), express.static(DIST));
+
+app.use(cors());
 
 app.use('/', (req, res) => {
   var url = req.protocol + '://' + req.get('host') + req.originalUrl;
