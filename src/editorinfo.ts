@@ -1,4 +1,4 @@
-import { IInterpreter } from '@dev4light/lezer-editor-common';
+import { IInterpreter, IEditorInfo } from '@dev4light/lezer-editor-common';
 import { RootInterpreter } from './interpreter/root.interpreter';
 
 function getGrammarTags() {
@@ -29,10 +29,8 @@ function getTokenType(node) {
   return 'name';
 }
 
-const EditorInfo = {
-  getGrammarTags,
-  getInterpreter,
-  getTokenType
+export const getEditorInfo : (() => IEditorInfo) = () => {
+  return {
+    getGrammarTags, getInterpreter, getTokenType
+  }
 }
-
-export default EditorInfo;

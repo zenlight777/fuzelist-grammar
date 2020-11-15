@@ -1,3 +1,3 @@
-export { default as EditorInfo } from './editorinfo';
+export { getEditorInfo } from './editorinfo';
 export { parser } from './grammar/parser';
 

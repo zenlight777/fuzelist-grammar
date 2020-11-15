@@ -29,10 +29,10 @@ function getTokenType(node) {
     }
     return 'name';
 }
-const EditorInfo = {
-    getGrammarTags,
-    getInterpreter,
-    getTokenType
+const getEditorInfo = () => {
+    return {
+        getGrammarTags, getInterpreter, getTokenType
+    };
 };
 
 /// The default maximum length of a `TreeBuffer` node.
@@ -76,13 +76,7 @@ var NodeProp = /** @class */ (function () {
     /// if the node type doesn't get this prop, and the prop's value if
     /// it does.
     NodeProp.prototype.add = function (match) {
-        var _this = this;
-        if (typeof match != "function")
-            match = NodeType.match(match);
-        return function (type) {
-            var result = match(type);
-            return result === undefined ? null : [_this, result];
-        };
+        return new NodePropSource(this, typeof match == "function" ? match : NodeType.match(match));
     };
     /// Prop that is used to describe matching delimiters. For opening
     /// delimiters, this holds an array of node names (written as a
@@ -98,6 +92,20 @@ var NodeProp = /** @class */ (function () {
     /// `"Expression"` group).
     NodeProp.group = new NodeProp({ deserialize: function (str) { return str.split(" "); } });
     return NodeProp;
+}());
+/// Type returned by [`NodeProp.add`](#tree.NodeProp.add). Describes
+/// the way a prop should be added to each node type in a node group.
+var NodePropSource = /** @class */ (function () {
+    /// @internal
+    function NodePropSource(
+    /// @internal
+    prop, 
+    /// @internal
+    f) {
+        this.prop = prop;
+        this.f = f;
+    }
+    return NodePropSource;
 }());
 /// Each node in a syntax tree has a node type associated with it.
 var NodeType = /** @class */ (function () {
@@ -215,11 +223,14 @@ var NodeGroup = /** @class */ (function () {
             var newProps = null;
             for (var _c = 0, props_1 = props; _c < props_1.length; _c++) {
                 var source = props_1[_c];
-                var add = source(type);
-                if (add) {
-                    if (!newProps)
-                        newProps = Object.assign({}, type.props);
-                    add[0].set(newProps, add[1]);
+                var value = source.f(type);
+                if (value !== undefined) {
+                    if (!newProps) {
+                        newProps = Object.create(null);
+                        for (var prop in type.props)
+                            newProps[prop] = type.props[prop];
+                    }
+                    newProps[source.prop.id] = value;
                 }
             }
             newTypes.push(newProps ? new NodeType(type.name, newProps, type.id, type.flags) : type);
@@ -699,7 +710,7 @@ var BufferNode = /** @class */ (function () {
             var parentStart = this._parent ? this._parent.index + 4 : 0;
             if (this.index == parentStart)
                 return this.externalSibling(-1);
-            return new BufferNode(this.context, this._parent, buffer.findChild(parentStart, this.index, -1, -100000000 /* None */));
+            return new BufferNode(this.context, this._parent, buffer.findChild(parentStart, this.index, -1, -1));
         },
         enumerable: true,
         configurable: true
@@ -2797,5 +2808,5 @@ const parser = Parser.deserialize({
   tokenPrec: 0
 });
 
-exports.EditorInfo = EditorInfo;
+exports.getEditorInfo = getEditorInfo;
 exports.parser = parser;
