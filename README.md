@@ -6,7 +6,8 @@ In Repl.it, to use your own grammar, please:
 
 1. Edit any file in this repo. 
 ![](https://imgur.com/gj4RzcH.png)
-1. When asked, fork the repo to your own repl.it account (create one if needed). 
+1. When asked, fork the repo to your own repl.it account (create one if needed)
+![](https://imgur.com/AtNc4PU.png)
 1. Click "Run" button and wait for build to finish
 ![](https://imgur.com/ZQuf9Gxl.png)
 1. Click the blue "Edit" button at top
