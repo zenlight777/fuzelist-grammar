@@ -2808,5 +2808,5 @@ const parser = Parser.deserialize({
   tokenPrec: 0
 });
 
+exports.LezerParser = parser;
 exports.getEditorInfo = getEditorInfo;
-exports.getParser = parser;
