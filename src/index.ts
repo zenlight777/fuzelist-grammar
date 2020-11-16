@@ -1,3 +1,3 @@
 export { getEditorInfo } from './editorinfo';
-export { parser } from './grammar/parser';
+export { parser as getParser } from './grammar/parser';
 

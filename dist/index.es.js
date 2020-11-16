@@ -2804,4 +2804,4 @@ const parser = Parser.deserialize({
   tokenPrec: 0
 });
 
-export { getEditorInfo, parser };
+export { getEditorInfo, parser as getParser };

@@ -2809,4 +2809,4 @@ const parser = Parser.deserialize({
 });
 
 exports.getEditorInfo = getEditorInfo;
-exports.parser = parser;
+exports.getParser = parser;
