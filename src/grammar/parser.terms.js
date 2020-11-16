@@ -6,5 +6,5 @@ export const
   eof = 10,
   Comment = 1,
   Main = 3,
-  VariableName = 4,
+  VariableName2 = 4,
   AssignOp = 5

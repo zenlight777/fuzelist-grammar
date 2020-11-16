@@ -141,7 +141,7 @@ const parser = lezer.Parser.deserialize({
   states: "!QO`QROOOOQQ'#C`'#C`OeQRO'#C_QOQROOOOQQ'#Ca'#CaO`QRO,58yOjQRO1G.eOOQQ7+$P7+$P",
   stateData: "r~O[OSWOSVOSPOS~O]PO~O^SO~OXVOYVO~O",
   goto: "cUPPPVY`RROQQORUTRTQ",
-  nodeNames: "⚠ Comment Root Main VariableName AssignOp",
+  nodeNames: "⚠ Comment Root Main VariableName2 AssignOp",
   maxTerm: 14,
   skippedNodes: [0,1],
   repeatNodeCount: 0,

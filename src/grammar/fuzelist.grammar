@@ -2,10 +2,10 @@
 @top Root { Main }
 
 Main {
-  VariableName AssignOp{"="} VariableName (newline | eof)
+  VariableName2 AssignOp{"="} VariableName2 (newline | eof)
 }
 
-VariableName { identifier }
+VariableName2 { identifier }
 
 @skip { space | newlineEmpty | newlineBracketed | Comment }
 
